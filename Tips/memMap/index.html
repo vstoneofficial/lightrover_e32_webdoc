@@ -1,0 +1,1755 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../adjustMParam/">
+      
+      
+        <link rel="next" href="../externalPort/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>メモリマップ表 - ライトローバー E32 WebDoc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="ライトローバー E32 WebDoc" class="md-header__button md-logo" aria-label="ライトローバー E32 WebDoc" data-md-component="logo">
+      
+  <img src="../../img/4571398314247-01.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ライトローバー E32 WebDoc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              メモリマップ表
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="pink"  aria-label="ダークモードに切り替えます。"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替えます。" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="pink"  aria-label="ライトモードに切り替えます。"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替えます。" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ライトローバー E32 WebDoc" class="md-nav__button md-logo" aria-label="ライトローバー E32 WebDoc" data-md-component="logo">
+      
+  <img src="../../img/4571398314247-01.jpg" alt="logo">
+
+    </a>
+    ライトローバー E32 WebDoc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セットアップ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    セットアップ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/whatIsLightroverE32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ライトローバー E32について
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/hardwareSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ハードウェアセットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ソフトウェアセットアップ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ソフトウェアセットアップ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Humble
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS2 Humble
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupRos2_humble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu 22.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupWsl_humble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL2 Ubuntu 22.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Jazzy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS2 Jazzy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupRos2_jazzy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu 24.04(準備中)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/esp32setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ESP32-S3開発環境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROSの使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROSの使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Humble
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Humble
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_humble/mouseCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    マウス入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_humble/keyboardCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    キーボード入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_humble/slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLAMをしよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_humble/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自律走行させよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tips
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjustMParam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モータパラメータの設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    メモリマップ表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externalPort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拡張ポート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/trademark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    商標について
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">メモリマップ一覧表</h1>
+<p>ライトローバー E32のメモリマップは以下の表の通りです。<br />
+パラメータを変更してモータをスムーズに回転させるようにする方法を解説します。<br />
+<br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">アドレス <br> (複数の場合は先頭)</th>
+<th style="text-align: left;">用途</th>
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">サイズ（Byte）</th>
+<th style="text-align: left;">R/W</th>
+<th style="text-align: left;">初期値</th>
+<th style="text-align: left;">コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">システム名</td>
+<td style="text-align: left;">MU16_SYSNAME</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x21</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x02</td>
+<td style="text-align: left;">ファームウェアリビジョン</td>
+<td style="text-align: left;">MU16_FIRMREV</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x07</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x04</td>
+<td style="text-align: left;">経過時間(ms)</td>
+<td style="text-align: left;">MU32_TRIPTIME</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x08</td>
+<td style="text-align: left;">ウォッチドッグタイマー</td>
+<td style="text-align: left;">MU16_WDT</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">0x0000で何もしない<br>0xffffでモータ停止<br>それ以外でカウントダウン[ms]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x0d</td>
+<td style="text-align: left;">ジャンパ</td>
+<td style="text-align: left;">MU8_MODE</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">b3-0:起動時に認識したジャンパの値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x0e</td>
+<td style="text-align: left;">電源OFF</td>
+<td style="text-align: left;">MU16_POWOFF_T</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">msec後に電源が切れる</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x10</td>
+<td style="text-align: left;">モータEnable</td>
+<td style="text-align: left;">MU8_O_EN</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">b0: 1でCH0出力Enable. 0でDisable<br>b1: 1でCH1出力Enable. 0でDisable</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x11</td>
+<td style="text-align: left;">モータトリガ</td>
+<td style="text-align: left;">MU8_TRIG</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">b0: 1でA_POS0をT_POS0に加算<br>b1: 1でA_POS1をT_POS1に加算<br>b2: 1でM_POS0とT_POS0をクリア<br>b3: 1でM_POS1とT_POS1をクリア</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x12</td>
+<td style="text-align: left;">シャットダウン電圧</td>
+<td style="text-align: left;">MU16_SD_VI</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x044F</td>
+<td style="text-align: left;">電圧と数値の関係式: 29.7V = 0x0FFF</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x14</td>
+<td style="text-align: left;">DIによる動作停止設定</td>
+<td style="text-align: left;">MU16_OD_DI</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x01FF</td>
+<td style="text-align: left;">対応するM_DIが1ならMU8_O_EN=0になる</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x16</td>
+<td style="text-align: left;">速度計算の基準時間(ms)</td>
+<td style="text-align: left;">MU16_SPD_T0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0064</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x18</td>
+<td style="text-align: left;">加算時間</td>
+<td style="text-align: left;">MU16_MOVE_TO</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x20</td>
+<td style="text-align: left;">比例ゲイン</td>
+<td style="text-align: left;">MU16_FB_PG0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0100</td>
+<td style="text-align: left;">位置制御時のモータ0比例ゲイン</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x22</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MU16_FB_PG1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0100</td>
+<td style="text-align: left;">位置制御時のモータ1比例ゲイン</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x24</td>
+<td style="text-align: left;">加速度上限</td>
+<td style="text-align: left;">MU16_FB_ALIM0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0010</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x26</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MU16_FB_ALIM1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0010</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x28</td>
+<td style="text-align: left;">加速度上限</td>
+<td style="text-align: left;">MU16_FB_DLIM0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0040</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x2a</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MU16_FB_DLIM1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0040</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x2c</td>
+<td style="text-align: left;">出力上限</td>
+<td style="text-align: left;">MU16_FB_OLIM0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0100</td>
+<td style="text-align: left;">100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x2e</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MU16_FB_OLIM1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0100</td>
+<td style="text-align: left;">100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x30</td>
+<td style="text-align: left;">パンチ</td>
+<td style="text-align: left;">MU16_FB_PCH0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御時のモータ0のパンチ<br>100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x32</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MU16_FB_PCH1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御時のモータ0のパンチ<br>100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x34</td>
+<td style="text-align: left;">予約</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">システム予約済み</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x40</td>
+<td style="text-align: left;">エンコーダ目標位置</td>
+<td style="text-align: left;">MS32_T_POS0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x44</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS32_T_POS1</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x48</td>
+<td style="text-align: left;">T_POSへの加算値</td>
+<td style="text-align: left;">MS32_A_POS0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x4c</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS32_A_POS1</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x4e</td>
+<td style="text-align: left;">予約</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">システム予約済み</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x50</td>
+<td style="text-align: left;">出力オフセット</td>
+<td style="text-align: left;">MS16_T_OUT0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x52</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS16_T_OUT1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x54</td>
+<td style="text-align: left;">予約</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">システム予約済み</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x60</td>
+<td style="text-align: left;">測定されたエンコーダ値</td>
+<td style="text-align: left;">MS32_M_POS0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x64</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS32_M_POS0</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">0x68</td>
+<td style="text-align: left;">測定された速度</td>
+<td style="text-align: left;">MS16_M_SPD0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">前回と今回のM_POS0の差分</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x6a</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS16_M_SPD1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">前回と今回のM_POS1の差分</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x6c</td>
+<td style="text-align: left;">計算されたモータ出力値</td>
+<td style="text-align: left;">MS16_M_OUT0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x6e</td>
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">MS16_M_OUT1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">100%が0x1000</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x70</td>
+<td style="text-align: left;">予約</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">システム予約済み</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x80</td>
+<td style="text-align: left;">予約</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">システム予約済み</td>
+</tr>
+<tr>
+<td style="text-align: left;">0x90</td>
+<td style="text-align: left;">バッテリー電圧</td>
+<td style="text-align: left;">MU16_M_VI</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">入力電圧 3.3V*4=13.2Vが0x0fff(VS-WRC940の場合)</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xa0</td>
+<td style="text-align: left;">距離指令値</td>
+<td style="text-align: left;">MS32_P_DIS</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00000000</td>
+<td style="text-align: left;">位置制御：移動距離[μm]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xa4</td>
+<td style="text-align: left;">角度指令値</td>
+<td style="text-align: left;">MS16_P_RAD</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御：旋回角度[mrad]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xa6</td>
+<td style="text-align: left;">加速度指令値</td>
+<td style="text-align: left;">MS16_P_ACC</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御：加速度[mm/s^2]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xa8</td>
+<td style="text-align: left;">速度指令値</td>
+<td style="text-align: left;">MS16_P_SPD</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御：速度[mm/s]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xaa</td>
+<td style="text-align: left;">位置制御状態</td>
+<td style="text-align: left;">MU8_P_STTS</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">位置制御状態、0x01:移動中、0x00:到達</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xac</td>
+<td style="text-align: left;">速度指令値</td>
+<td style="text-align: left;">MS16_S_XS</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">速度制御：直線速度[mm/s]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xae</td>
+<td style="text-align: left;">角度指令値</td>
+<td style="text-align: left;">MS16_S_ZS</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">速度制御：ヨー軸旋回速度[mrad/s]</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb0</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO4 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb1</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO5 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb2</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO6 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb3</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE3</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO7 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb4</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE4</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO8 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb5</td>
+<td style="text-align: left;">入出力モード</td>
+<td style="text-align: left;">MU8_IO_MODE5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">IO9 モード</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb6</td>
+<td style="text-align: left;">デジタル出力</td>
+<td style="text-align: left;">MU8_IO_DO</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">デジタル出力状態、ビット0~5: IO4~IO9</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb7</td>
+<td style="text-align: left;">デジタル入力</td>
+<td style="text-align: left;">MU8_IO_DI</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x00</td>
+<td style="text-align: left;">デジタル入力状態、ビット0~5: IO4~IO9</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xb8</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO4 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xba</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO5 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xbc</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI2</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO6 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xbe</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI3</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO7 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xc0</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI4</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO8 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xc2</td>
+<td style="text-align: left;">アナログ入力値</td>
+<td style="text-align: left;">MU16_IO_AI5</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO9 アナログ入力値</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xc4</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM0</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO4 PWMデューティー比</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xc6</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO5 PWMデューティー比</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xc8</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM2</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO6 PWMデューティー比</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xca</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM3</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO7 PWMデューティー比</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xcc</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM4</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO8 PWMデューティー比</td>
+</tr>
+<tr>
+<td style="text-align: left;">0xce</td>
+<td style="text-align: left;">PWM出力値</td>
+<td style="text-align: left;">MU16_IO_PWM5</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">R/W</td>
+<td style="text-align: left;">0x0000</td>
+<td style="text-align: left;">IO9 PWMデューティー比</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
