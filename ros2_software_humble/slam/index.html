@@ -1237,9 +1237,9 @@ ros2 launch lightrover_e32_navigation wrc940_slam.launch.py use_keyboard_teleop:
 <h2 id="_1">地図の保存</h2>
 <p>作成したmapを保存する方法を説明します。<br />
 mapの保存にはmap_serverパッケージのmap_saverノードを使用します。<br />
-次のコマンドを実行することで、ホームフォルダに地図の画像ファイル(.pgm)とデータファイル(.yaml)が保存されます。<br />
+マップ関連のファイル名をtest1とした場合次のコマンドを実行することで、ホームフォルダに地図の画像ファイル(.pgm)とデータファイル(.yaml)が保存されます。<br />
 ファイル名は適宜設定してください。  </p>
-<pre><code>ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_navigation/maps/ファイル名
+<pre><code>ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_navigation/maps/test1 --free 0.19
 </code></pre>
 
 

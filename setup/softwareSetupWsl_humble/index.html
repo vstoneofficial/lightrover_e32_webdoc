@@ -1330,7 +1330,7 @@ WSL2を使用することでWindows環境でもUbuntu 22.04を動作させるこ
 </code></pre></div>
 </li>
 <li>
-<p>終了する際はexitでUbuntuから抜け、wsl -shutdownを実行  </p>
+<p>終了する際はexitでUbuntuから抜け、wsl --shutdownを実行  </p>
 </li>
 </ol>
 <h2 id="ros2">ROS2のセットアップ</h2>
@@ -1468,20 +1468,36 @@ echo &quot;source ~/ros2_ws/install/local_setup.bash&quot; &gt;&gt; ~/.bashrc
 <p>ターミナルで下記のコマンドを実行し、IPアドレスを確認してください。<br />
 ESP32-S3の設定で利用します。  </p>
 <ol>
-<li>Windows PowerShellで下記コマンドを実行しWindowsのIPアドレスを確認<br />
-    ipconfig</li>
-<li>WSLのUbuntu 22.04のターミナルで下記コマンドを実行しUbuntuのIPアドレスを確認<br />
-    ip addr</li>
+<li>
+<p>Windows PowerShellで下記コマンドを実行しWindowsのIPアドレスを確認  </p>
+<div class="highlight"><pre><span></span><code>ipconfig
+</code></pre></div>
+</li>
+<li>
+<p>WSLのUbuntu 22.04のターミナルで下記コマンドを実行しUbuntuのIPアドレスを確認  </p>
+<div class="highlight"><pre><span></span><code>ip addr
+</code></pre></div>
+</li>
 </ol>
-<p>WindowsとUbuntuでIPアドレスが違う場合は下記を実行
-1.  Windows PowerShellを管理者として実行<br />
-    ipconfig
-2.  notepad $env:USERPROFILE.wslconfigを実行し、下記内容を追記<br />
-    [wsl2]
-    networkingMode=mirrored
-3.  wsl --shutdownを実行<br />
-4.  wsl -d Ubuntu-22.04を実行<br />
-5.  ip addrでUbuntuのIPアドレスを確認  </p>
+<p>WindowsとUbuntuでIPアドレスが違う場合は下記を実行  </p>
+<ol>
+<li>
+<p>Windows PowerShellを管理者として実行  </p>
+<div class="highlight"><pre><span></span><code>ipconfig
+</code></pre></div>
+</li>
+<li>
+<p>notepad $env:USERPROFILE\.wslconfigを実行し、下記内容を追記  </p>
+<div class="highlight"><pre><span></span><code>[wsl2]
+networkingMode=mirrored
+</code></pre></div>
+</li>
+<li>
+<p>wsl --shutdownを実行  </p>
+</li>
+<li>wsl -d Ubuntu-22.04を実行  </li>
+<li>ip addrでUbuntuのIPアドレスを確認  </li>
+</ol>
 <p><br>
 ROS2 Humbleの環境構築は完了です。<br />
 続いて<a href="https://vstoneofficial.github.io/lightrover_e32_webdoc/setup/esp32setup/">ESP32-S3の開発環境の構築</a>を実施してください。  </p>
