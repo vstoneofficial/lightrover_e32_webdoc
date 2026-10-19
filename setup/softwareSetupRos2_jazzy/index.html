@@ -12,7 +12,7 @@
         <link rel="prev" href="../softwareSetupWsl_humble/">
       
       
-        <link rel="next" href="../esp32setup/">
+        <link rel="next" href="../softwareSetupWsl_jazzy/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>Ubuntu 24.04(準備中) - ライトローバー E32 WebDoc</title>
+        <title>Ubuntu 24.04 - ライトローバー E32 WebDoc</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ubuntu 24.04(準備中)
+              Ubuntu 24.04
             
           </span>
         </div>
@@ -584,6 +584,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu 24.04
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -591,7 +609,7 @@
   <span class="md-ellipsis">
     
   
-    Ubuntu 24.04(準備中)
+    Ubuntu 24.04
   
 
     
@@ -601,6 +619,125 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSのセットアップと設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2のセットアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2のセットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Jazzyのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-ros-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        micro-ROS Agent のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightrover_e32_ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lightrover_e32_ros2パッケージのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IPアドレスの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softwareSetupWsl_jazzy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL2 Ubuntu 24.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -710,6 +847,34 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../software/aboutROS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROSとは
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -719,10 +884,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   
@@ -740,8 +905,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -843,6 +1008,173 @@
   
     <li class="md-nav__item">
       <a href="../../ros2_software_humble/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自律走行させよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jazzy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jazzy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/mouseCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    マウス入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/keyboardCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    キーボード入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLAMをしよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/navigation/" class="md-nav__link">
         
   
   
@@ -1063,6 +1395,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSのセットアップと設定
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2のセットアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2のセットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Jazzyのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-ros-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        micro-ROS Agent のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightrover_e32_ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lightrover_e32_ros2パッケージのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IPアドレスの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1082,10 +1494,135 @@
 <p>ライトローバー E32を動作させせるためには、ESP32-S3の開発環境の他にROS2 Jazzyの動作する環境が必要です。<br />
 以下の手順で、ROS2 Jazzyの環境を構築していきましょう。<br />
 なお本ドキュメントではUbuntu 24.04（実機PC）を想定して解説します。<br />
-もし「Windowsで動作させたい」「専用のUbuntu PCが用意できない」という場合は、WindowsのWSL2上にUbuntu 24.04を構築して動作させることも可能です。  </p>
-<!-- WSL2のセットアップ方法については[WSL2 Ubuntu 24.04](setup/softwareSetupWsl_jazzy.md)をご参照ください。 -->
-
-<p>現在ドキュメントの準備中です。</p>
+もし「Windowsで動作させたい」「専用のUbuntu PCが用意できない」という場合は、WindowsのWSL2上にUbuntu 24.04を構築して動作させることも可能です。<br />
+WSL2のセットアップ方法については<a href="https://vstoneofficial.github.io/lightrover_e32_webdoc/setup/softwareSetupWsl_jazzy/">WSL2 Ubuntu 24.04</a>をご参照ください。  </p>
+<h2 id="os">OSのセットアップと設定</h2>
+<p>ROS2のセットアップや、ライトローバー E32を動作させるために必要な設定などを行います。  </p>
+<h2 id="ros2">ROS2のセットアップ</h2>
+<h3 id="ros2-jazzy">ROS2 Jazzyのインストール</h3>
+<p>LinuxへROS2 Jazzyをインストールします。<br />
+基本的には以下のサイトの説明に沿って進めて行きます。<br />
+<a href="https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html">ROS2 Documentation: Jazzy</a></p>
+<ol>
+<li>
+<p>ロケールの設定<br />
+    UTF-8対応のロケールを設定します。<br />
+    ターミナルで以下のコマンドを実行してください。  </p>
+<div class="highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+</code></pre></div>
+</li>
+<li>
+<p>ROS2リポジトリの設定<br />
+    ROS2のリポジトリをソースリストに追加することで、インストールできるようにします。<br />
+    まず以下の2つのコマンドを実行してください。  </p>
+<div class="highlight"><pre><span></span><code>sudo apt install software-properties-common
+sudo add-apt-repository universe
+</code></pre></div>
+<p><br>
+ターミナルで次の2つのコマンドを実行してください。  </p>
+<div class="highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+</code></pre></div>
+<p>最後にsource listにリポジトリを追加します。  </p>
+<div class="highlight"><pre><span></span><code>echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release &amp;&amp; echo $UBUNTU_CODENAME) main&quot; | sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null
+</code></pre></div>
+<p><br></p>
+</li>
+<li>
+<p>ROS2 Jazzyのインストール<br />
+    以下のコマンドを実行してROS2 Jazzyをインストールします。  </p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt upgrade
+sudo apt install ros-jazzy-desktop
+sudo apt install ros-dev-tools
+sudo rosdep init
+rosdep update
+</code></pre></div>
+</li>
+<li>
+<p>環境変数の設定<br />
+    ターミナルからコマンドを呼び出して実行する際には、そのコマンドに対するパスが通っている必要があります。<br />
+    ターミナルを起動した際にROSへのパスが通るように設定を追加します。<br />
+    ターミナルを立ち上げて以下のコマンドを実行してください。  </p>
+<div class="highlight"><pre><span></span><code>source /opt/ros/jazzy/setup.bash
+echo &quot;source /opt/ros/jazzy/setup.bash&quot; &gt;&gt; ~/.bashrc
+</code></pre></div>
+</li>
+</ol>
+<p>以上で、ROS2 jazzyのインストールは完了です。  </p>
+<h3 id="micro-ros-agent">micro-ROS Agent のセットアップ</h3>
+<ol>
+<li>
+<p>micro-ROS Agent用のディレクトリを作成<br />
+    ターミナルを開き、下記のコマンドを実行しディレクトリを作成する。  </p>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/uros_ws/src
+</code></pre></div>
+</li>
+<li>
+<p>micro-ROS Agentプロジェクトのクローン<br />
+    先ほど作ったディレクトリに移動しプロジェクトをクローンする。  </p>
+<div class="highlight"><pre><span></span><code>cd ~/uros_ws/src
+git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git
+</code></pre></div>
+</li>
+<li>
+<p>関連ライブラリのインストールとプロジェクトのビルド<br />
+    下記のコマンドで関連ライブラリのインストール。その後プロジェクトをビルド。  </p>
+<div class="highlight"><pre><span></span><code>cd ~/uros_ws
+rosdep update &amp;&amp; rosdep install --from-paths src --ignore-src -y
+colcon build
+source install/local_setup.bash
+ros2 run micro_ros_setup create_agent_ws.sh
+ros2 run micro_ros_setup build_agent.sh
+source install/local_setup.bash
+</code></pre></div>
+</li>
+</ol>
+<h3 id="lightrover_e32_ros2">lightrover_e32_ros2パッケージのインストール</h3>
+<p>新たにワークスペースを作成しライトローバー E32をROS2から制御するためのパッケージ「lightrover_ros2」をセットアップしましょう。  </p>
+<ol>
+<li>
+<p>ワークスペースの作成
+    下記コマンドでROS 2用各種パッケージ用のワークスペースとなるフォルダを作成する。</p>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/ros2_ws/src
+</code></pre></div>
+</li>
+<li>
+<p>Githubからlightrover_e32_rosパッケージのソースをクローン<br />
+    ターミナルを開き、下記のコマンドを実行する。</p>
+<div class="highlight"><pre><span></span><code>cd ~/ros2_ws/src
+git clone -b jazzy https://github.com/vstoneofficial/lightrover_e32_ros2.git
+sudo apt update
+sudo xargs -a ~/ros2_ws/src/lightrover_e32_ros2/packages.txt apt install -y
+</code></pre></div>
+</li>
+<li>
+<p>ワークスペースのビルドとオーバーレイ<br />
+    下記のコマンドでワークスペースをビルド、その後ワークスペースをオーバーレイする。</p>
+<div class="highlight"><pre><span></span><code>cd ~/ros2_ws
+colcon build --symlink-install
+source ~/ros2_ws/install/local_setup.bash
+</code></pre></div>
+</li>
+<li>
+<p>シェルを起動時にワークスペースがオーバーレイされるように設定  </p>
+<div class="highlight"><pre><span></span><code>echo &quot;source ~/uros_ws/install/local_setup.bash&quot; &gt;&gt; ~/.bashrc
+echo &quot;source ~/ros2_ws/install/local_setup.bash&quot; &gt;&gt; ~/.bashrc
+</code></pre></div>
+</li>
+</ol>
+<p>これでlightrover_e32_ros2パッケージのインストールは完了です。  </p>
+<h3 id="ip">IPアドレスの確認</h3>
+<p>ターミナルで下記のコマンドを実行し、IPアドレスを確認してください。<br />
+ESP32-S3の設定で利用します。  </p>
+<pre><code>ip addr
+</code></pre>
+<p><br>
+ROS2 Jazzyの環境構築は完了です。<br />
+続いて<a href="https://vstoneofficial.github.io/lightrover_e32_webdoc/setup/esp32setup/">ESP32-S3の開発環境の構築</a>を実施してください。  </p>
 
 
 
