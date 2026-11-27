@@ -1,0 +1,2476 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../navigation/">
+      
+      
+        <link rel="next" href="../../ros2_software_jazzy/mouseCtrl/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>模倣学習で走らせよう - ライトローバー E32 WebDoc</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="ライトローバー E32 WebDoc" class="md-header__button md-logo" aria-label="ライトローバー E32 WebDoc" data-md-component="logo">
+      
+  <img src="../../img/4571398314247-01.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ライトローバー E32 WebDoc
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              模倣学習で走らせよう
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="pink"  aria-label="ダークモードに切り替えます。"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替えます。" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="pink"  aria-label="ライトモードに切り替えます。"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替えます。" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ライトローバー E32 WebDoc" class="md-nav__button md-logo" aria-label="ライトローバー E32 WebDoc" data-md-component="logo">
+      
+  <img src="../../img/4571398314247-01.jpg" alt="logo">
+
+    </a>
+    ライトローバー E32 WebDoc
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    セットアップ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    セットアップ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/whatIsLightroverE32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ライトローバー E32について
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/hardwareSetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ハードウェアセットアップ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ソフトウェアセットアップ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ソフトウェアセットアップ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Humble
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS2 Humble
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupRos2_humble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu 22.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupWsl_humble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL2 Ubuntu 22.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 Jazzy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS2 Jazzy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupRos2_jazzy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu 24.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/softwareSetupWsl_jazzy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL2 Ubuntu 24.04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/esp32setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ESP32-S3開発環境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROSの使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROSの使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/aboutROS2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROSとは
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/basicROS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本操作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Humble
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Humble
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mouseCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    マウス入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keyboardCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    キーボード入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLAMをしよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自律走行させよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模倣学習で走らせよう
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模倣学習で走らせよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        準備
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作用パッケージのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学習用環境（PyTorch）の作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コースを作る
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デモを収集する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デモを収集する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        向きの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        運転する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学習する
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIで走らせる
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        苦手な場面を教えて再学習する
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シミュレータで学習する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータを起動する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータでデモ収集・学習・AI走行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習したモデルを実機で走らせる
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現実らしさの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROSなしで試す（オフライン）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発展課題
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        うまく動かないとき
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="うまく動かないとき">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マウスを操作してもロボットが動かない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既知の制限
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jazzy
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jazzy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/mouseCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    マウス入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/keyboardCtrl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    キーボード入力で走行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/slam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SLAMをしよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    自律走行させよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_jazzy/imitation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模倣学習で走らせよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tips
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/adjustMParam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    モータパラメータの設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/memMap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    メモリマップ表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/externalPort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拡張ポート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/trademark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    商標について
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        準備
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="準備">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作用パッケージのインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学習用環境（PyTorch）の作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コースを作る
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デモを収集する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デモを収集する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        向きの確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        運転する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学習する
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AIで走らせる
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        苦手な場面を教えて再学習する
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シミュレータで学習する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータを起動する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータでデモ収集・学習・AI走行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習したモデルを実機で走らせる
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現実らしさの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROSなしで試す（オフライン）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発展課題
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        うまく動かないとき
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="うまく動かないとき">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マウスを操作してもロボットが動かない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既知の制限
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">模倣学習で走らせよう</h1>
+<p>人がマウスで運転したときの「LiDARの見え方」と「操作」を記録し、小さなニューラルネットワークに学習させて、ライトローバー E32を同じように走らせてみましょう。<br />
+このように、人のお手本（デモ）をまねるようにAIを学習させる手法を「模倣学習」、その中でも最も基本的なものを「Behavior Cloning（行動クローニング）」と呼びます。<br />
+<br>
+このサンプルでは、次のサイクルを繰り返してAIの走り方を育てていきます。  </p>
+<pre><code>デモ収集（人が運転） → 学習（PCで1～2分） → AI走行 → 人が修正 → 再学習 …
+</code></pre>
+<p>SLAMやナビゲーションとは異なり、地図は使いません。<br />
+AIが学習するのは決まったルートではなく「この見え方なら、こう動く」という運転のしかたです。<br />
+そのため、<strong>コースの配置を変えても走れる</strong> ことがこのサンプルの見どころです。<br />
+<br>
+また、実機の代わりにPC上のシミュレータを使って同じ手順を試すこともできます。<br />
+シミュレータで学習したモデルを、そのまま実機で走らせることも可能です（後述の「シミュレータで学習する」を参照）。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>このページの手順は、<a href="../../setup/softwareSetupRos2_humble/">ソフトウェアセットアップ（ROS2 Humble）</a>が完了していることを前提としています。<br />
+また、<a href="../mouseCtrl/">マウス入力で走行</a>でライトローバー E32がマウスで操作できることを確認しておいてください。<br />
+ROS 2 Jazzy（Ubuntu 24.04）を使用している場合は、<a href="../../ros2_software_jazzy/imitation/">Jazzy版のページ</a>を参照してください。</p>
+</div>
+<h2 id="_2">仕組み</h2>
+<p>サンプルは次のノードで構成されています。  </p>
+<pre><code> 人の操作 (mouse_teleop) ─&gt; /il/human_cmd ─┐
+                                            ├─ il_cmd_mux ─&gt; /il/cmd ─&gt; twist_limiter ─&gt; /rover_twist ─&gt; 実機 (またはシミュレータ il_sim)
+ il_policy (学習した方策) ─&gt; /il/policy_cmd ┘   (人が優先)
+
+ /scan ──┬─&gt; il_recorder : 人が操作している瞬間の (スキャン, 操作) を ~/il_data に保存
+         └─&gt; il_policy   : スキャン → 特徴量(36方向の最小距離) → ニューラルネット → 速度指令
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>ノード / スクリプト</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>il_recorder</td>
+<td>人が操作している瞬間のLiDARスキャンと操作量をペアにして保存します</td>
+</tr>
+<tr>
+<td>il_cmd_mux</td>
+<td>人の操作とAIの指令を切り替えます。人が操作するとすぐに人の操作が優先されます</td>
+</tr>
+<tr>
+<td>il_policy</td>
+<td>学習済みモデルを使って、LiDARスキャンから速度指令を出します</td>
+</tr>
+<tr>
+<td>train.py</td>
+<td>記録したデータからモデルを学習するスクリプトです（PyTorchを使用、ROS不要）</td>
+</tr>
+<tr>
+<td>il_sim</td>
+<td>実機の代わりに動くシミュレータです。実機と同じ<code>/scan</code>を出力し、<code>/rover_twist</code>を受け取って動きます</td>
+</tr>
+<tr>
+<td>sim2d.py</td>
+<td>ROSを使わずに一連の流れを試せるオフライン用の簡易シミュレータです</td>
+</tr>
+</tbody>
+</table>
+<p>AIへの入力（特徴量）は「ロボットの正面を0°として360°を36方向に分け、各方向で一番近い物体までの距離」です。<br />
+AIの出力は「前進速度」と「旋回速度」の2つです。  </p>
+<h2 id="_3">準備</h2>
+<h3 id="_4">パッケージの確認</h3>
+<p>模倣学習サンプルは<code>lightrover_e32_imitation</code>パッケージとして、ライトローバー E32のROS 2パッケージ（<a href="https://github.com/vstoneofficial/lightrover_e32_ros2/tree/main/lightrover_e32_imitation">mainブランチ</a>）に含まれています。<br />
+ソフトウェアセットアップでビルドしたワークスペースに、次のフォルダがあることを確認してください。  </p>
+<pre><code>ls ~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation
+</code></pre>
+<p>フォルダが見つからない場合や、シミュレータの起動ファイル（<code>launch/sim.launch.py</code>）がない場合は、パッケージを最新版に更新してからビルドしなおしてください。  </p>
+<pre><code>cd ~/ros2_ws/src/lightrover_e32_ros2
+git pull
+cd ~/ros2_ws
+colcon build --symlink-install
+source ~/ros2_ws/install/local_setup.bash
+</code></pre>
+<h3 id="_5">操作用パッケージのインストール</h3>
+<p>デモの記録にはmouse-teleopを使用します（キーボードで操作する場合はteleop-twist-keyboardとxterm）。<br />
+まだインストールしていない場合は、下記のコマンドでインストールしてください。  </p>
+<pre><code>sudo apt install ros-humble-mouse-teleop ros-humble-teleop-twist-keyboard xterm
+</code></pre>
+<h3 id="pytorch">学習用環境（PyTorch）の作成</h3>
+<p>モデルの学習（train.py）にはPyTorchが必要です。<br />
+学習専用の仮想環境（venv）を作成し、そこにPyTorchをインストールします。<br />
+Ubuntu 22.04ではシステムのPythonに<code>pip install --user torch</code>でインストールすることもできますが、依存パッケージとして新しいsetuptoolsなどが<code>~/.local</code>にインストールされ、ROS 2 Humbleの<code>colcon build</code>で警告やエラーが出るようになることがあります。そのため、venvの使用をおすすめします。  </p>
+<pre><code>sudo apt install python3-venv
+python3 -m venv ~/il_venv
+~/il_venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
+~/il_venv/bin/pip install numpy matplotlib
+</code></pre>
+<p><code>--index-url ...cpu</code>を付けるとCPU版のPyTorchがインストールされます。<br />
+付けない場合は数GBあるCUDA版がインストールされます。このサンプルはCPUで十分に学習できます。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ロボットを走らせるノード（il_policy）はnumpyだけで動作するため、PyTorchは学習にのみ使用します。<br />
+学習を別のPCで行う場合も、同じ手順でvenvを作成し、記録したデータフォルダ（<code>~/il_data</code>）をコピーすれば学習できます。</p>
+</div>
+<h2 id="_6">コースを作る</h2>
+<p>机の上などに、箱や板を使って周回コースを作ります。  </p>
+<ul>
+<li><strong>通路幅は40cm以上</strong> にしてください。ライトローバー E32のLiDARは12cmより近い物体を計測できず「何もない」と判定するため、壁に寄りすぎると壁が見えなくなります。  </li>
+<li>机から落下しないよう、コースの外周は必ず壁で囲んでください。  </li>
+</ul>
+<h2 id="_7">デモを収集する</h2>
+<p>ターミナルを起動し、下記コマンドでROS 2とMicro-ROSを統合するためのエージェントノードを起動します。  </p>
+<pre><code>cd ~/uros_ws
+ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888
+</code></pre>
+<p>エージェントノードを実行した状態でライトローバー E32を起動させてしばらく待ちます。<br />
+通信が成功すると、エージェントノードに新しい文字列が表示されます。<br />
+その状態になったら新しいターミナルを開き、下記のコマンドでロボット本体側のノードを起動します（Rvizが起動し、LiDARのデータが表示されます）。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_bringup robot.launch.py
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>mouse_teleop.launch.py</code>や<code>keyboard_teleop.launch.py</code>など、操作用のlaunchファイルは起動しないでください。<br />
+模倣学習サンプルが操作用のノードを自分で起動するため、同時に起動すると指令が競合します。</p>
+</div>
+<p>さらに新しいターミナルを開き、下記のコマンドでデモ収集を開始します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation collect.launch.py
+</code></pre>
+<p>キーボードで操作したい場合は、<code>teleop:=keyboard</code>を付けて起動してください。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation collect.launch.py teleop:=keyboard
+</code></pre>
+<h3 id="_8">向きの確認</h3>
+<p>起動すると、ターミナルに次のような表示が2秒ごとに出力されます。  </p>
+<pre><code>samples=0  前=0.45m 左=0.20m 右=0.18m
+</code></pre>
+<p><strong>走り始める前に、手でロボットの前・左・右に物を置き、その方向の値が小さくなることを確認してください。</strong><br />
+向きが正しく認識できていないと、正しく学習できません。  </p>
+<h3 id="_9">運転する</h3>
+<p>マウス操作ウィンドウでロボットを運転し、コースを <strong>5～10周</strong> 走らせましょう。<br />
+記録されるのは「マウスで操作している瞬間」だけなので、途中で止まって休んでも問題ありません。<br />
+データは15秒ごとに<code>~/il_data/demo_日時.npz</code>へ保存されます。終了するときはCtrl+Cを押してください。<br />
+<br>
+上手に学習させるコツは次のとおりです。  </p>
+<ul>
+<li>一定のペースで、なるべく毎回同じ走り方をする（走り方がばらばらだと、AIはその平均をとってしまいます）</li>
+<li>時計回り・反時計回りの両方を走ると、さまざまな状況に対応しやすくなります</li>
+<li>わざと壁に寄ってから戻る動きを少し入れておくと、コースからずれたときに戻れるようになります</li>
+</ul>
+<h2 id="_10">学習する</h2>
+<p>デモ収集が終わったら、作成したvenvのPythonで学習スクリプトを実行します。<br />
+ロボットとの通信は不要なので、エージェントノードなどは止めてもかまいません。  </p>
+<pre><code>IL=~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation/lightrover_e32_imitation
+~/il_venv/bin/python $IL/train.py --data ~/il_data --out ~/il_models/model.npz --mirror --plot ~/il_models/val.png
+</code></pre>
+<p>CPUで1～2分ほどで終了し、最後に次のような評価結果が表示されます。  </p>
+<pre><code>検証データでの平均誤差   直進 0.004 m/s   旋回 0.075 rad/s
+(参考: 常に平均値を出すだけの場合  直進 0.004 m/s   旋回 0.310 rad/s)
+曲がる場面で左右を当てた割合: 98%
+</code></pre>
+<p>「旋回」の誤差が「常に平均値を出すだけの場合」より明らかに小さければ、学習できています。<br />
+学習済みモデルは<code>~/il_models/model.npz</code>に保存されます。<br />
+また、<code>~/il_models/val.png</code>を開くと、人の操作（human）とAIの出力（policy）がどれだけ重なっているかをグラフで確認できます。<br />
+<br>
+主なオプションは次のとおりです。  </p>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>既定値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--mirror</td>
+<td>なし</td>
+<td>左右反転したデータを追加し、データ量を2倍にします</td>
+</tr>
+<tr>
+<td>--max-range</td>
+<td>1.0</td>
+<td>これより遠い物体はすべて「遠い」として同じに扱います[m]。卓上コースなら0.5～1.0</td>
+</tr>
+<tr>
+<td>--sectors</td>
+<td>36</td>
+<td>360°を何方向に分割するか</td>
+</tr>
+<tr>
+<td>--hidden</td>
+<td>64 64</td>
+<td>ニューラルネットワークの隠れ層のサイズ</td>
+</tr>
+<tr>
+<td>--intervention-weight</td>
+<td>2.0</td>
+<td>AI走行中に人が修正したデータの重み（後述）</td>
+</tr>
+<tr>
+<td>--epochs</td>
+<td>300</td>
+<td>学習の最大繰り返し回数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai">AIで走らせる</h2>
+<p>デモ収集のときと同じように、エージェントノードと<code>robot.launch.py</code>を起動しておきます。<br />
+その状態で新しいターミナルを開き、下記のコマンドで学習済みモデルを使った走行ノードを起動します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation run_policy.launch.py
+</code></pre>
+<p>起動直後は停止状態です。ロボットをコース上に置いたら、別のターミナルで下記のコマンドを実行して走行を開始してください。  </p>
+<pre><code>ros2 param set /il_policy enabled true
+</code></pre>
+<p>停止するときは<code>enabled</code>を<code>false</code>にします。  </p>
+<pre><code>ros2 param set /il_policy enabled false
+</code></pre>
+<p>走行中にマウスを操作すると、その間は人の操作が優先されます。マウスから手を離すとAIの走行に戻ります。<br />
+速度を落としたい場合は、<code>speed_scale</code>を変更してください（例：70%の速度）。  </p>
+<pre><code>ros2 param set /il_policy speed_scale 0.7
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WSL2などで<code>ros2 param set</code>がノードを見つけられない場合は、<code>--no-daemon</code>を付けて実行してください。<br />
+<code>ros2 param set --no-daemon /il_policy enabled true</code><br />
+また、<code>run_policy.launch.py enabled:=true</code>で起動すると、起動直後から走り始めます。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>正面±30°に15cm未満の物体がある場合は前進しない安全装置が入っていますが、LiDARは12cm未満を計測できないため完全ではありません。<br />
+AI走行中は必ず人が近くで見守り、すぐに止められるようにしてください。</p>
+</div>
+<h2 id="_11">苦手な場面を教えて再学習する</h2>
+<p>AI走行中に壁にぶつかりそうになったら、マウスで割り込んで正しい動きを教えましょう。<br />
+<code>run_policy.launch.py</code>の実行中も記録ノードが動いており、<strong>人が割り込んで修正した区間だけ</strong> が<code>~/il_data</code>に追加で保存されます。<br />
+<br>
+その後、もう一度「学習する」の手順を実行すると、修正したデータも含めて学習しなおされ、苦手だった場面が改善されます。<br />
+修正データは<code>--intervention-weight</code>で指定した重み（既定値2倍）で重視されます。<br />
+<br>
+このように「AIを走らせる → 失敗した場面だけ人が教える → 再学習する」という改善方法は「DAgger」と呼ばれ、実際のロボットAIのデータ収集でも使われている考え方です。  </p>
+<h2 id="_12">シミュレータで学習する</h2>
+<p>実機の代わりにシミュレータ（il_sim）を起動すると、「デモ収集 → 学習 → AI走行 → 修正 → 再学習」の手順をPCだけで行えます。<br />
+il_simは実機と <strong>同じトピック・同じ形式</strong> で<code>/scan</code>を出力し、<code>/rover_twist</code>を受け取って動くため、<code>collect.launch.py</code>と<code>run_policy.launch.py</code>は実機のときとまったく同じように使えます。  </p>
+<pre><code>実機         : micro-ROS agent + robot.launch.py ─┐
+                                                   ├─ /scan, /rover_twist ─ collect / run_policy (共通)
+シミュレータ : sim.launch.py (il_sim)  ────────────┘
+</code></pre>
+<p>シミュレータで集めたデータで学習したモデルを、そのまま実機で走らせることもできます。<br />
+このように、シミュレータで学習したものを現実で使うことを「Sim-to-Real」と呼びます。  </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>シミュレータと実機を同時に起動しないでください。同じトピック名を使うため、指令やスキャンが混ざってしまいます。<br />
+同じネットワークで他の人もROS 2を使っている場合は、<code>ROS_DOMAIN_ID</code>を分けてください。</p>
+</div>
+<h3 id="_13">シミュレータを起動する</h3>
+<p>エージェントノードや<code>robot.launch.py</code>は起動せず、代わりに下記のコマンドでシミュレータを起動します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation sim.launch.py
+</code></pre>
+<p>Rvizが起動し、コース（茶色の壁）、LiDARの点（赤）、ロボット、走行軌跡（青線）が表示されます。緑の矢印はスタート位置です。<br />
+<br>
+<code>course:=</code>でコースを選べます（例：L字コース）。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation sim.launch.py course:=l_shape
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>コース</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>square</td>
+<td>四角いドーナツ形（外側1.3m四方、通路幅0.4m）。曲がり角はすべて同じ向きです（既定）</td>
+</tr>
+<tr>
+<td>square_wide</td>
+<td>通路幅0.6mの四角いコース。学習していない通路幅でも走れるかの確認用です</td>
+</tr>
+<tr>
+<td>l_shape</td>
+<td>L字形のコース。反時計回りに走ると、左折5回と右折1回があります</td>
+</tr>
+<tr>
+<td>obstacles</td>
+<td>通路幅0.6mのコースに、箱を左右交互に置いたコースです</td>
+</tr>
+</tbody>
+</table>
+<p>自分でコースを作る場合は、パッケージの<code>courses</code>フォルダにあるYAMLファイルをコピーして壁の座標を書き換え、<code>course:=~/my_course.yaml</code>のようにファイルのパスで指定してください。<br />
+<br>
+シミュレータの起動中は、次のコマンドでコースの切り替えやリセットができます。  </p>
+<pre><code>ros2 param set /il_sim course l_shape
+</code></pre>
+<pre><code>ros2 service call /il_sim/reset std_srvs/srv/Empty
+</code></pre>
+<p>コースを切り替えると、ロボットはスタート位置に戻ります。リセットすると、スタート位置に戻り、周回数などの統計もリセットされます。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WSL2などでノードが見つからない場合は、<code>ros2 param set --no-daemon ...</code>、<code>ros2 service call --no-daemon ...</code>のように<code>--no-daemon</code>を付けて実行してください。</p>
+</div>
+<h3 id="ai_1">シミュレータでデモ収集・学習・AI走行</h3>
+<p>シミュレータを起動したまま、新しいターミナルを開いて実機と同じ手順を行います。<br />
+実機のデータと混ざらないよう、<code>data_dir:=</code>で保存先を<code>~/il_data_sim</code>に分けておきます。<br />
+<br>
+<strong>デモ収集</strong>：マウス操作ウィンドウで、Rviz上のロボットを運転してコースを5～10周させます。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation collect.launch.py data_dir:=~/il_data_sim
+</code></pre>
+<p><strong>学習</strong>：Ctrl+Cでデモ収集を終了したら、保存先と出力ファイル名を変えて学習します。  </p>
+<pre><code>IL=~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation/lightrover_e32_imitation
+~/il_venv/bin/python $IL/train.py --data ~/il_data_sim --out ~/il_models/model_sim.npz --mirror
+</code></pre>
+<p><strong>AI走行</strong>：学習したモデルを<code>model_path:=</code>で指定して走らせます。<code>enabled:=true</code>を付けると、起動直後から走り始めます。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation run_policy.launch.py data_dir:=~/il_data_sim model_path:=~/il_models/model_sim.npz enabled:=true
+</code></pre>
+<p>実機と同じように、走行中にマウスで割り込んで修正した区間は<code>~/il_data_sim</code>に追加されるので、再学習して改善できます。<br />
+<br>
+シミュレータを起動したターミナルには、1周するごとに次のような表示が出ます。  </p>
+<pre><code>1 周 (52 秒, 衝突 0 回)
+</code></pre>
+<p>また、10秒ごとに周回数・衝突回数・走行距離が表示されます。モデルの良し悪しを数字で比較できます。  </p>
+<h3 id="_14">シミュレータで学習したモデルを実機で走らせる</h3>
+<p>シミュレータを停止（Ctrl+C）してから、<a href="#ai">AIで走らせる</a>と同じようにエージェントノードと<code>robot.launch.py</code>を起動します。<br />
+その状態で、シミュレータで学習したモデルを指定して走行ノードを起動します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation run_policy.launch.py model_path:=~/il_models/model_sim.npz
+</code></pre>
+<p>最初は速度を落としてから走行を開始すると安全です。  </p>
+<pre><code>ros2 param set /il_policy speed_scale 0.7
+ros2 param set /il_policy enabled true
+</code></pre>
+<p>AIが学習しているのはルートではなく「LiDARの見え方に対する運転のしかた」なので、実機のコースがシミュレータのコースと同じ形である必要はありません（ただし、通路幅は近いほうがうまく走れます）。<br />
+<br>
+実機でうまく走れない場面では、マウスで割り込んで修正しましょう。修正したデータは<code>~/il_data</code>に記録されます。<br />
+<code>--data</code>には複数のフォルダを指定できるので、シミュレータのデータと実機のデータを合わせて学習しなおします。  </p>
+<pre><code>~/il_venv/bin/python $IL/train.py --data ~/il_data_sim ~/il_data --out ~/il_models/model_mix.npz --mirror
+</code></pre>
+<p>「シミュレータで大量に学習し、実機の少しのデータで仕上げる」という流れは、実際のロボットAIの開発でも使われている方法です。  </p>
+<h3 id="_15">現実らしさの設定</h3>
+<p>シミュレータでは、実機との差になりやすい要素を設定で変えられます。<br />
+既定（<code>realism:=real</code>）は実機に近づけた設定、<code>realism:=ideal</code>はノイズも遅れもない理想的な設定です。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation sim.launch.py realism:=ideal
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>real</th>
+<th>ideal</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>range_noise</td>
+<td>0.01</td>
+<td>0</td>
+<td>LiDARの距離ノイズ（標準偏差）[m]</td>
+</tr>
+<tr>
+<td>dropout</td>
+<td>0.02</td>
+<td>0</td>
+<td>LiDARの計測が抜ける割合</td>
+</tr>
+<tr>
+<td>range_min</td>
+<td>0.12</td>
+<td>0</td>
+<td>これより近い物体は計測できない距離[m]（ライトローバー E32のLiDARは0.12）</td>
+</tr>
+<tr>
+<td>cmd_delay</td>
+<td>0.10</td>
+<td>0</td>
+<td>指令が届いてから動き出すまでの遅れ[s]</td>
+</tr>
+<tr>
+<td>linear_gain</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>指令に対する実際の前進速度の比（電池が減ると1より小さくなるイメージ）</td>
+</tr>
+<tr>
+<td>angular_gain</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>指令に対する実際の旋回速度の比（床の滑りなど）</td>
+</tr>
+<tr>
+<td>motion_noise</td>
+<td>0.05</td>
+<td>0</td>
+<td>動きのばらつき（指令に対する相対値）</td>
+</tr>
+</tbody>
+</table>
+<p>realの値は目安です。実機の様子を見て、パッケージの<code>config/sim_real.yaml</code>を調整してください。<br />
+シミュレータの起動中に変更することもできます。  </p>
+<pre><code>ros2 param set /il_sim cmd_delay 0.3
+ros2 param set /il_sim linear_gain 0.7
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>値は小数で指定してください（<code>0</code>ではなく<code>0.0</code>）。整数で指定すると型が合わずに変更できません。</p>
+</div>
+<h2 id="ros">ROSなしで試す（オフライン）</h2>
+<p>ROSやロボット実機がなくても、学習用のvenvだけで「デモ収集 → 学習 → 走行」の流れを簡易シミュレータ（sim2d.py）で体験できます。  </p>
+<pre><code>IL=~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation/lightrover_e32_imitation
+~/il_venv/bin/python $IL/sim2d.py record --out ~/il_data_sim/demo_sim.npz
+~/il_venv/bin/python $IL/train.py --data ~/il_data_sim --out ~/il_models/sim_model.npz --mirror
+~/il_venv/bin/python $IL/sim2d.py eval --model ~/il_models/sim_model.npz --plot ~/il_models/sim_run.png
+</code></pre>
+<p>四角いドーナツ形のコース（外側1.3m四方、通路幅0.4m）を「お手本役のプログラム」が走ったデータで学習し、学習したAIで周回させます。<br />
+最後に周回数と衝突の有無が表示され、<code>~/il_models/sim_run.png</code>に走行軌跡が保存されます。<br />
+<br>
+シミュレータの物理は大幅に簡略化しているため、ここで走れても実機で同じように走れるとは限りません。<br />
+シミュレータと実機の違いを体験してみるのもよいでしょう。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>実機用のデータ（<code>~/il_data</code>）とシミュレータ用のデータ（<code>~/il_data_sim</code>）は混ぜないようにしてください。</p>
+</div>
+<h2 id="_16">発展課題</h2>
+<p>模倣学習の性質を調べる題材として、次のような実験を試してみましょう。<br />
+記録したデータは生のLiDARデータのまま保存しているので、前処理の設定を変えるだけなら再収集の必要はありません。  </p>
+<ul>
+<li><strong>データの量と質</strong>：周回数を2周・5周・10周と変えて、走りやすさを比較する</li>
+<li><strong>前処理</strong>：<code>--sectors</code>や<code>--max-range</code>を変えて、挙動の違いを観察する</li>
+<li><strong>データ拡張</strong>：片回りしか走っていないデータで<code>--mirror</code>の有無を比べ、逆回りでも走れるか試す</li>
+<li><strong>行動の多峰性</strong>：コース中央に障害物を置き、左右半々で避けるデモを記録すると、AIは左右の平均をとって正面衝突しやすくなります。なぜそうなるか、どうすれば解決できるかを考えてみましょう</li>
+<li><strong>DAgger</strong>：人の修正データがある場合とない場合で、周回の成功率を比較する</li>
+</ul>
+<p>シミュレータを使うと、実機では時間のかかる比較も手軽に行えます。  </p>
+<ul>
+<li><strong>Sim-to-Real</strong>：シミュレータのデータだけで学習したモデルを実機で走らせ、どこで失敗するかを観察する。実機の修正データを少し加えるとどう変わるか比較する</li>
+<li><strong>現実らしさの影響</strong>：<code>realism:=ideal</code>で集めたデータのモデルを、<code>realism:=real</code>や実機で走らせるとどうなるか試す。<code>cmd_delay</code>や<code>linear_gain</code>を変えた場合も観察する</li>
+<li><strong>汎化</strong>：<code>square</code>コースだけで学習したモデルを、<code>l_shape</code>や<code>obstacles</code>コースで走らせる。同じ手順でも、集めたデータによって走り切れる場合とL字の角で止まってしまう場合があります。どんなデータを加えれば安定するか考えてみましょう</li>
+</ul>
+<h2 id="_17">うまく動かないとき</h2>
+<h3 id="_18">マウスを操作してもロボットが動かない</h3>
+<p>下記のコマンドで、<code>/il/human_cmd</code>のPublisher（mouse_teleop）とSubscription（il_cmd_mux）のメッセージ型がそろっているか確認してください。  </p>
+<pre><code>ros2 topic info /il/human_cmd
+</code></pre>
+<ul>
+<li>Humbleのmouse_teleop（1.7系）は<code>geometry_msgs/msg/Twist</code>を出力します。既定の設定（<code>mouse_stamped:=false</code>）のままで動作します。  </li>
+<li>mouse_teleopを新しいバージョン（2.x）に入れ替えている場合は<code>geometry_msgs/msg/TwistStamped</code>が出力されるため、<code>mouse_stamped:=true</code>を付けて起動してください。  </li>
+</ul>
+<pre><code>ros2 launch lightrover_e32_imitation collect.launch.py mouse_stamped:=true
+</code></pre>
+<p><code>run_policy.launch.py</code>を起動する場合も同様です。<br />
+メッセージ型が食い違っていてもROS 2はエラーを表示せず、単に指令が届かない状態になるので注意してください。  </p>
+<h2 id="_19">既知の制限</h2>
+<ul>
+<li>LiDARは12cm未満の距離を計測できず、その方向は「遠い」と同じ扱いになります。通路は広めに作ってください。  </li>
+<li>AIの出力は「前進速度」と「旋回速度」の2つで、後退するデモには対応していません。  </li>
+<li>最高速度は前進0.10m/s、旋回1.0rad/sに制限されています。launch引数<code>max_linear_x:=</code>・<code>max_angular_z:=</code>で変更できますが、変更した場合は学習時の<code>--max-linear</code>・<code>--max-angular</code>にも同じ値を指定してください。  </li>
+<li>シミュレータ（il_sim）の動きは「指令した速度で進む」だけの簡略版です。壁にぶつかるとその場で止まり、壁から離れる方向への移動と旋回だけができます。慣性やタイヤの滑りは<code>motion_noise</code>などで大まかに表しているだけです。  </li>
+<li>シミュレータのLiDARは壁までの距離にノイズを加えただけで、黒い物体や光沢のある物体が計測しにくいといった実機のLiDARの特性は再現していません。  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

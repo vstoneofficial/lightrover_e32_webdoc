@@ -933,6 +933,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_software_humble/imitation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模倣学習で走らせよう
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1316,7 +1344,68 @@
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        実機なしで試す
+        シミュレータで学習する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シミュレータで学習する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータを起動する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータでデモ収集・学習・AI走行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習したモデルを実機で走らせる
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現実らしさの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROSなしで試す（オフライン）
       
     </span>
   </a>
@@ -1324,7 +1413,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         発展課題
@@ -1335,7 +1424,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         既知の制限
@@ -1708,7 +1797,68 @@
   <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        実機なしで試す
+        シミュレータで学習する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シミュレータで学習する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータを起動する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータでデモ収集・学習・AI走行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シミュレータで学習したモデルを実機で走らせる
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現実らしさの設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROSなしで試す（オフライン）
       
     </span>
   </a>
@@ -1716,7 +1866,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
         発展課題
@@ -1727,7 +1877,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
         既知の制限
@@ -1763,16 +1913,20 @@
 </code></pre>
 <p>SLAMやナビゲーションとは異なり、地図は使いません。<br />
 AIが学習するのは決まったルートではなく「この見え方なら、こう動く」という運転のしかたです。<br />
-そのため、<strong>コースの配置を変えても走れる</strong> ことがこのサンプルの見どころです。  </p>
+そのため、<strong>コースの配置を変えても走れる</strong> ことがこのサンプルの見どころです。<br />
+<br>
+また、実機の代わりにPC上のシミュレータを使って同じ手順を試すこともできます。<br />
+シミュレータで学習したモデルを、そのまま実機で走らせることも可能です（後述の「シミュレータで学習する」を参照）。  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>このページの手順は、<a href="../../setup/softwareSetupRos2_jazzy/">ソフトウェアセットアップ（ROS2 Jazzy）</a>が完了していることを前提としています。<br />
-また、<a href="../mouseCtrl/">マウス入力で走行</a>でライトローバー E32がマウスで操作できることを確認しておいてください。</p>
+また、<a href="../mouseCtrl/">マウス入力で走行</a>でライトローバー E32がマウスで操作できることを確認しておいてください。<br />
+ROS 2 Humble（Ubuntu 22.04）を使用している場合は、<a href="../../ros2_software_humble/imitation/">Humble版のページ</a>を参照してください。</p>
 </div>
 <h2 id="_2">仕組み</h2>
 <p>サンプルは次のノードで構成されています。  </p>
 <pre><code> 人の操作 (mouse_teleop) ─&gt; /il/human_cmd ─┐
-                                            ├─ il_cmd_mux ─&gt; /il/cmd ─&gt; twist_limiter ─&gt; /rover_twist ─&gt; 実機
+                                            ├─ il_cmd_mux ─&gt; /il/cmd ─&gt; twist_limiter ─&gt; /rover_twist ─&gt; 実機 (またはシミュレータ il_sim)
  il_policy (学習した方策) ─&gt; /il/policy_cmd ┘   (人が優先)
 
  /scan ──┬─&gt; il_recorder : 人が操作している瞬間の (スキャン, 操作) を ~/il_data に保存
@@ -1803,8 +1957,12 @@ AIが学習するのは決まったルートではなく「この見え方なら
 <td>記録したデータからモデルを学習するスクリプトです（PyTorchを使用、ROS不要）</td>
 </tr>
 <tr>
+<td>il_sim</td>
+<td>実機の代わりに動くシミュレータです。実機と同じ<code>/scan</code>を出力し、<code>/rover_twist</code>を受け取って動きます</td>
+</tr>
+<tr>
 <td>sim2d.py</td>
-<td>実機なしで一連の流れを試せる簡易2Dシミュレータです</td>
+<td>ROSを使わずに一連の流れを試せるオフライン用の簡易シミュレータです</td>
 </tr>
 </tbody>
 </table>
@@ -1816,7 +1974,7 @@ AIの出力は「前進速度」と「旋回速度」の2つです。  </p>
 ソフトウェアセットアップでビルドしたワークスペースに、次のフォルダがあることを確認してください。  </p>
 <pre><code>ls ~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation
 </code></pre>
-<p>フォルダが見つからない場合は、パッケージを最新版に更新してからビルドしなおしてください。  </p>
+<p>フォルダが見つからない場合や、シミュレータの起動ファイル（<code>launch/sim.launch.py</code>）がない場合は、パッケージを最新版に更新してからビルドしなおしてください。  </p>
 <pre><code>cd ~/ros2_ws/src/lightrover_e32_ros2
 git pull
 cd ~/ros2_ws
@@ -1981,8 +2139,176 @@ AI走行中は必ず人が近くで見守り、すぐに止められるように
 修正データは<code>--intervention-weight</code>で指定した重み（既定値2倍）で重視されます。<br />
 <br>
 このように「AIを走らせる → 失敗した場面だけ人が教える → 再学習する」という改善方法は「DAgger」と呼ばれ、実際のロボットAIのデータ収集でも使われている考え方です。  </p>
-<h2 id="_12">実機なしで試す</h2>
-<p>ROSやロボット実機がなくても、学習用のvenvだけで「デモ収集 → 学習 → 走行」の流れをシミュレータで体験できます。  </p>
+<h2 id="_12">シミュレータで学習する</h2>
+<p>実機の代わりにシミュレータ（il_sim）を起動すると、「デモ収集 → 学習 → AI走行 → 修正 → 再学習」の手順をPCだけで行えます。<br />
+il_simは実機と <strong>同じトピック・同じ形式</strong> で<code>/scan</code>を出力し、<code>/rover_twist</code>を受け取って動くため、<code>collect.launch.py</code>と<code>run_policy.launch.py</code>は実機のときとまったく同じように使えます。  </p>
+<pre><code>実機         : micro-ROS agent + robot.launch.py ─┐
+                                                   ├─ /scan, /rover_twist ─ collect / run_policy (共通)
+シミュレータ : sim.launch.py (il_sim)  ────────────┘
+</code></pre>
+<p>シミュレータで集めたデータで学習したモデルを、そのまま実機で走らせることもできます。<br />
+このように、シミュレータで学習したものを現実で使うことを「Sim-to-Real」と呼びます。  </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>シミュレータと実機を同時に起動しないでください。同じトピック名を使うため、指令やスキャンが混ざってしまいます。<br />
+同じネットワークで他の人もROS 2を使っている場合は、<code>ROS_DOMAIN_ID</code>を分けてください。</p>
+</div>
+<h3 id="_13">シミュレータを起動する</h3>
+<p>エージェントノードや<code>robot.launch.py</code>は起動せず、代わりに下記のコマンドでシミュレータを起動します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation sim.launch.py
+</code></pre>
+<p>Rvizが起動し、コース（茶色の壁）、LiDARの点（赤）、ロボット、走行軌跡（青線）が表示されます。緑の矢印はスタート位置です。<br />
+<br>
+<code>course:=</code>でコースを選べます（例：L字コース）。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation sim.launch.py course:=l_shape
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>コース</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>square</td>
+<td>四角いドーナツ形（外側1.3m四方、通路幅0.4m）。曲がり角はすべて同じ向きです（既定）</td>
+</tr>
+<tr>
+<td>square_wide</td>
+<td>通路幅0.6mの四角いコース。学習していない通路幅でも走れるかの確認用です</td>
+</tr>
+<tr>
+<td>l_shape</td>
+<td>L字形のコース。反時計回りに走ると、左折5回と右折1回があります</td>
+</tr>
+<tr>
+<td>obstacles</td>
+<td>通路幅0.6mのコースに、箱を左右交互に置いたコースです</td>
+</tr>
+</tbody>
+</table>
+<p>自分でコースを作る場合は、パッケージの<code>courses</code>フォルダにあるYAMLファイルをコピーして壁の座標を書き換え、<code>course:=~/my_course.yaml</code>のようにファイルのパスで指定してください。<br />
+<br>
+シミュレータの起動中は、次のコマンドでコースの切り替えやリセットができます。  </p>
+<pre><code>ros2 param set /il_sim course l_shape
+</code></pre>
+<pre><code>ros2 service call /il_sim/reset std_srvs/srv/Empty
+</code></pre>
+<p>コースを切り替えると、ロボットはスタート位置に戻ります。リセットすると、スタート位置に戻り、周回数などの統計もリセットされます。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WSL2などでノードが見つからない場合は、<code>ros2 param set --no-daemon ...</code>、<code>ros2 service call --no-daemon ...</code>のように<code>--no-daemon</code>を付けて実行してください。</p>
+</div>
+<h3 id="ai_1">シミュレータでデモ収集・学習・AI走行</h3>
+<p>シミュレータを起動したまま、新しいターミナルを開いて実機と同じ手順を行います。<br />
+実機のデータと混ざらないよう、<code>data_dir:=</code>で保存先を<code>~/il_data_sim</code>に分けておきます。<br />
+<br>
+<strong>デモ収集</strong>：マウス操作ウィンドウで、Rviz上のロボットを運転してコースを5～10周させます。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation collect.launch.py data_dir:=~/il_data_sim
+</code></pre>
+<p><strong>学習</strong>：Ctrl+Cでデモ収集を終了したら、保存先と出力ファイル名を変えて学習します。  </p>
+<pre><code>IL=~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation/lightrover_e32_imitation
+~/il_venv/bin/python $IL/train.py --data ~/il_data_sim --out ~/il_models/model_sim.npz --mirror
+</code></pre>
+<p><strong>AI走行</strong>：学習したモデルを<code>model_path:=</code>で指定して走らせます。<code>enabled:=true</code>を付けると、起動直後から走り始めます。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation run_policy.launch.py data_dir:=~/il_data_sim model_path:=~/il_models/model_sim.npz enabled:=true
+</code></pre>
+<p>実機と同じように、走行中にマウスで割り込んで修正した区間は<code>~/il_data_sim</code>に追加されるので、再学習して改善できます。<br />
+<br>
+シミュレータを起動したターミナルには、1周するごとに次のような表示が出ます。  </p>
+<pre><code>1 周 (52 秒, 衝突 0 回)
+</code></pre>
+<p>また、10秒ごとに周回数・衝突回数・走行距離が表示されます。モデルの良し悪しを数字で比較できます。  </p>
+<h3 id="_14">シミュレータで学習したモデルを実機で走らせる</h3>
+<p>シミュレータを停止（Ctrl+C）してから、<a href="#ai">AIで走らせる</a>と同じようにエージェントノードと<code>robot.launch.py</code>を起動します。<br />
+その状態で、シミュレータで学習したモデルを指定して走行ノードを起動します。  </p>
+<pre><code>cd ~/ros2_ws
+ros2 launch lightrover_e32_imitation run_policy.launch.py model_path:=~/il_models/model_sim.npz
+</code></pre>
+<p>最初は速度を落としてから走行を開始すると安全です。  </p>
+<pre><code>ros2 param set /il_policy speed_scale 0.7
+ros2 param set /il_policy enabled true
+</code></pre>
+<p>AIが学習しているのはルートではなく「LiDARの見え方に対する運転のしかた」なので、実機のコースがシミュレータのコースと同じ形である必要はありません（ただし、通路幅は近いほうがうまく走れます）。<br />
+<br>
+実機でうまく走れない場面では、マウスで割り込んで修正しましょう。修正したデータは<code>~/il_data</code>に記録されます。<br />
+<code>--data</code>には複数のフォルダを指定できるので、シミュレータのデータと実機のデータを合わせて学習しなおします。  </p>
+<pre><code>~/il_venv/bin/python $IL/train.py --data ~/il_data_sim ~/il_data --out ~/il_models/model_mix.npz --mirror
+</code></pre>
+<p>「シミュレータで大量に学習し、実機の少しのデータで仕上げる」という流れは、実際のロボットAIの開発でも使われている方法です。  </p>
+<h3 id="_15">現実らしさの設定</h3>
+<p>シミュレータでは、実機との差になりやすい要素を設定で変えられます。<br />
+既定（<code>realism:=real</code>）は実機に近づけた設定、<code>realism:=ideal</code>はノイズも遅れもない理想的な設定です。  </p>
+<pre><code>ros2 launch lightrover_e32_imitation sim.launch.py realism:=ideal
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>real</th>
+<th>ideal</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>range_noise</td>
+<td>0.01</td>
+<td>0</td>
+<td>LiDARの距離ノイズ（標準偏差）[m]</td>
+</tr>
+<tr>
+<td>dropout</td>
+<td>0.02</td>
+<td>0</td>
+<td>LiDARの計測が抜ける割合</td>
+</tr>
+<tr>
+<td>range_min</td>
+<td>0.12</td>
+<td>0</td>
+<td>これより近い物体は計測できない距離[m]（ライトローバー E32のLiDARは0.12）</td>
+</tr>
+<tr>
+<td>cmd_delay</td>
+<td>0.10</td>
+<td>0</td>
+<td>指令が届いてから動き出すまでの遅れ[s]</td>
+</tr>
+<tr>
+<td>linear_gain</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>指令に対する実際の前進速度の比（電池が減ると1より小さくなるイメージ）</td>
+</tr>
+<tr>
+<td>angular_gain</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>指令に対する実際の旋回速度の比（床の滑りなど）</td>
+</tr>
+<tr>
+<td>motion_noise</td>
+<td>0.05</td>
+<td>0</td>
+<td>動きのばらつき（指令に対する相対値）</td>
+</tr>
+</tbody>
+</table>
+<p>realの値は目安です。実機の様子を見て、パッケージの<code>config/sim_real.yaml</code>を調整してください。<br />
+シミュレータの起動中に変更することもできます。  </p>
+<pre><code>ros2 param set /il_sim cmd_delay 0.3
+ros2 param set /il_sim linear_gain 0.7
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>値は小数で指定してください（<code>0</code>ではなく<code>0.0</code>）。整数で指定すると型が合わずに変更できません。</p>
+</div>
+<h2 id="ros">ROSなしで試す（オフライン）</h2>
+<p>ROSやロボット実機がなくても、学習用のvenvだけで「デモ収集 → 学習 → 走行」の流れを簡易シミュレータ（sim2d.py）で体験できます。  </p>
 <pre><code>IL=~/ros2_ws/src/lightrover_e32_ros2/lightrover_e32_imitation/lightrover_e32_imitation
 ~/il_venv/bin/python $IL/sim2d.py record --out ~/il_data_sim/demo_sim.npz
 ~/il_venv/bin/python $IL/train.py --data ~/il_data_sim --out ~/il_models/sim_model.npz --mirror
@@ -1997,7 +2323,7 @@ AI走行中は必ず人が近くで見守り、すぐに止められるように
 <p class="admonition-title">Note</p>
 <p>実機用のデータ（<code>~/il_data</code>）とシミュレータ用のデータ（<code>~/il_data_sim</code>）は混ぜないようにしてください。</p>
 </div>
-<h2 id="_13">発展課題</h2>
+<h2 id="_16">発展課題</h2>
 <p>模倣学習の性質を調べる題材として、次のような実験を試してみましょう。<br />
 記録したデータは生のLiDARデータのまま保存しているので、前処理の設定を変えるだけなら再収集の必要はありません。  </p>
 <ul>
@@ -2007,11 +2333,19 @@ AI走行中は必ず人が近くで見守り、すぐに止められるように
 <li><strong>行動の多峰性</strong>：コース中央に障害物を置き、左右半々で避けるデモを記録すると、AIは左右の平均をとって正面衝突しやすくなります。なぜそうなるか、どうすれば解決できるかを考えてみましょう</li>
 <li><strong>DAgger</strong>：人の修正データがある場合とない場合で、周回の成功率を比較する</li>
 </ul>
-<h2 id="_14">既知の制限</h2>
+<p>シミュレータを使うと、実機では時間のかかる比較も手軽に行えます。  </p>
+<ul>
+<li><strong>Sim-to-Real</strong>：シミュレータのデータだけで学習したモデルを実機で走らせ、どこで失敗するかを観察する。実機の修正データを少し加えるとどう変わるか比較する</li>
+<li><strong>現実らしさの影響</strong>：<code>realism:=ideal</code>で集めたデータのモデルを、<code>realism:=real</code>や実機で走らせるとどうなるか試す。<code>cmd_delay</code>や<code>linear_gain</code>を変えた場合も観察する</li>
+<li><strong>汎化</strong>：<code>square</code>コースだけで学習したモデルを、<code>l_shape</code>や<code>obstacles</code>コースで走らせる。同じ手順でも、集めたデータによって走り切れる場合とL字の角で止まってしまう場合があります。どんなデータを加えれば安定するか考えてみましょう</li>
+</ul>
+<h2 id="_17">既知の制限</h2>
 <ul>
 <li>LiDARは12cm未満の距離を計測できず、その方向は「遠い」と同じ扱いになります。通路は広めに作ってください。  </li>
 <li>AIの出力は「前進速度」と「旋回速度」の2つで、後退するデモには対応していません。  </li>
 <li>最高速度は前進0.10m/s、旋回1.0rad/sに制限されています。launch引数<code>max_linear_x:=</code>・<code>max_angular_z:=</code>で変更できますが、変更した場合は学習時の<code>--max-linear</code>・<code>--max-angular</code>にも同じ値を指定してください。  </li>
+<li>シミュレータ（il_sim）の動きは「指令した速度で進む」だけの簡略版です。壁にぶつかるとその場で止まり、壁から離れる方向への移動と旋回だけができます。慣性やタイヤの滑りは<code>motion_noise</code>などで大まかに表しているだけです。  </li>
+<li>シミュレータのLiDARは壁までの距離にノイズを加えただけで、黒い物体や光沢のある物体が計測しにくいといった実機のLiDARの特性は再現していません。  </li>
 </ul>
 
 
